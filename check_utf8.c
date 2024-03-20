@@ -46,7 +46,7 @@ check_utf8(const char *str, size_t strlen)
 			oct = pos[i];
 			if ((oct & 0xc0) != 0x80)
 				return (0);
-			ch = ch << 6 | oct & 0x3F;
+			ch = ch << 6 | (oct & 0x3F);
 		}
 		if (!(bytes == 1 || (bytes == 2 && ch >= 0x80) ||
 		    (bytes == 3 && ch >= 0x800) ||
